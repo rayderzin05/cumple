@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // CONTROL DEL REPRODUCTOR DE MÚSICA Y BUCLE PERSONALIZADO
 // =========================================================
 
-// CONFIGURA AQUÍ TU TIEMPO EN SEGUNDOS
-const SEGUNDO_INICIO = 72;  // Ejemplo: minuto 1:12 (Cámbialo si quieres)
-const SEGUNDO_FIN = 160;    // Ejemplo: minuto 2:40 (Cámbialo si quieres)
+// CONFIGURA AQUÍ TU TIEMPO EN SEGUNDOS (C418 - Dreiton)
+const SEGUNDO_INICIO = 258;  // Minuto 4:18
+const SEGUNDO_FIN = 488;    // Minuto 8:48
 
 function controlarMusica() {
     var musica = document.getElementById("miMusica");
