@@ -1,0 +1,392 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+
+body{
+
+    margin:0;
+    min-height:100vh;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    position:relative;
+
+    background-image:url("assets/fondo/fondocerezo.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+}
+
+/* ========================= */
+/* CAPAS */
+/* ========================= */
+
+.cielo,
+.montanas,
+.arboles-lejanos,
+.arboles-cercanos,
+.terreno{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+}
+
+.cielo{
+
+    background:linear-gradient(
+        to bottom,
+        rgba(135,206,235,.20),
+        rgba(255,255,255,0)
+    );
+
+    z-index:1;
+
+}
+
+/* ========================= */
+/* PETALOS */
+/* ========================= */
+
+.petalos{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:5;
+
+}
+
+.item-petalo{
+
+    position:absolute;
+
+    top:-100px;
+
+    pointer-events:none;
+
+    image-rendering:pixelated;
+
+    animation:caer linear infinite;
+
+    will-change:transform;
+
+}
+
+@keyframes caer{
+
+    0%{
+
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(0deg)
+        rotateY(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:
+        translateY(50vh)
+        translateX(30px)
+        rotate(180deg)
+        rotateY(180deg);
+
+        opacity:.9;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(110vh)
+        translateX(-20px)
+        rotate(360deg)
+        rotateY(360deg);
+
+        opacity:.2;
+
+    }
+
+}
+
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
+
+.contenido{
+
+    position:relative;
+
+    z-index:10;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.contenido h1{
+
+    color:white;
+
+    font-size:3rem;
+
+    margin-bottom:35px;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 8px rgba(0,0,0,.40),
+    0 3px 12px rgba(0,0,0,.35);
+
+}
+
+/* ========================= */
+/* CARTA */
+/* ========================= */
+
+.carta{
+
+    width:100%;
+    max-width:560px;
+
+    margin-bottom:40px;
+
+    background:#f6e8c3;
+
+    padding:55px 45px;
+
+    border-radius:8px;
+
+    border:3px solid #7d5b35;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 25px 50px rgba(0,0,0,.35),
+
+    inset 0 0 35px rgba(78,45,18,.18);
+
+    transition:.5s;
+
+}
+
+.carta::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.18), transparent 45%),
+
+    radial-gradient(circle at 85% 80%, rgba(90,50,20,.18), transparent 35%),
+
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,.04), transparent 60%);
+
+}
+
+.carta::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:14px;
+
+    border:2px solid rgba(96,60,25,.18);
+
+    pointer-events:none;
+
+}
+
+.carta:hover{
+
+    transform:
+
+    scale(1.02)
+
+    rotate(-0.4deg);
+
+}
+
+/* ========================= */
+/* PERGAMINO */
+/* ========================= */
+
+.pergamino{
+
+    position:relative;
+
+    z-index:3;
+
+    font-family:"Caveat",cursive;
+
+}
+
+.pergamino h2{
+
+    font-size:2.4rem;
+
+    color:#41220d;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.pergamino p{
+
+    font-size:1.8rem;
+
+    line-height:1.6;
+
+    color:#47260d;
+
+    letter-spacing:.5px;
+
+    text-align:left;
+
+}
+
+/* ========================= */
+/* FOQUITA */
+/* ========================= */
+
+.foquita{
+
+    display:block;
+
+    width:170px;
+
+    max-width:70%;
+
+    margin:0 auto 30px auto;
+
+    border-radius:18px;
+
+    transform:rotate(-4deg);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25);
+
+    transition:.35s;
+
+}
+
+.foquita:hover{
+
+    transform:rotate(0deg) scale(1.05);
+
+}
+/* ========================= */
+/* MOVIL */
+/* ========================= */
+@media(max-width:768px){
+
+    body{
+
+        overflow-y:auto;
+
+    }
+
+    .contenido{
+
+        padding:25px;
+
+    }
+
+    .contenido h1{
+
+        font-size:2.1rem;
+
+        margin-bottom:25px;
+
+    }
+
+    .carta{
+
+        width:95%;
+
+        padding:35px 22px;
+
+    }
+
+    .pergamino h2{
+
+        font-size:2rem;
+
+    }
+
+    .pergamino p{
+
+        font-size:1.45rem;
+
+        line-height:1.7;
+
+    }
+
+    .foquita{
+
+        width:130px;
+
+        margin-bottom:20px;
+
+    }
+
+}
