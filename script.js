@@ -35,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Tamaño aleatorio
         const tamano = Math.random() * 50 + 40;
 
-        
-
         petalo.style.width = `${tamano}px`;
         petalo.style.height = "auto";
 
