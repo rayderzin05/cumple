@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Tamaño aleatorio
         const tamano = Math.random() * 50 + 40;
 
+        
+
         petalo.style.width = `${tamano}px`;
         petalo.style.height = "auto";
 
@@ -92,3 +94,42 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(crearPetalo, 180);
 
 });
+
+// =========================================================
+// CONTROL DEL REPRODUCTOR DE MÚSICA Y BUCLE PERSONALIZADO
+// =========================================================
+
+// CONFIGURA AQUÍ TU TIEMPO EN SEGUNDOS
+const SEGUNDO_INICIO = 72;  // Ejemplo: minuto 1:12 (Cámbialo si quieres)
+const SEGUNDO_FIN = 160;    // Ejemplo: minuto 2:40 (Cámbialo si quieres)
+
+function controlarMusica() {
+    var musica = document.getElementById("miMusica");
+    var boton = document.getElementById("botonMusica");
+    
+    if (musica.paused) {
+        // Si está fuera del rango elegido, forzamos el inicio
+        if (musica.currentTime < SEGUNDO_INICIO || musica.currentTime >= SEGUNDO_FIN) {
+            musica.currentTime = SEGUNDO_INICIO;
+        }
+        
+        musica.play();
+        boton.innerHTML = "⏸️ Pausar Música";
+        boton.style.backgroundColor = "#4CAF50"; // Cambia a verde al sonar
+        
+        // Activamos el vigilante de tiempo para recortar la canción
+        musica.addEventListener("timeupdate", verificarBucle);
+    } else {
+        musica.pause();
+        boton.innerHTML = "🎵 Reproducir Música";
+        boton.style.backgroundColor = "#ff4081"; // Vuelve a rosa al pausar
+    }
+}
+
+// Función que revisa los segundos actuales y reinicia el bucle si hace falta
+function verificarBucle() {
+    var musica = document.getElementById("miMusica");
+    if (musica.currentTime >= SEGUNDO_FIN) {
+        musica.currentTime = SEGUNDO_INICIO;
+    }
+}
